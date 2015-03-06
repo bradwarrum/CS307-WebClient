@@ -15,7 +15,7 @@ angular.module('LoginModule')
   $scope.login = function (credentials) {
     LoginService.login(credentials.emailAddress, credentials.password, function(response){
       if(response.success){
-        $rootScope.globals.username = credentials.emailAddress;
+        $rootScope.globals.emailAddress = credentials.emailAddress;
         $rootScope.globals.firstName = response.data.firstName;
         $rootScope.globals.lastName = response.data.lastName;
         $rootScope.globals.token = response.data.token;

@@ -18,8 +18,8 @@ app.config(['$routeProvider', function ($routeProvider) {
         templateUrl: 'modules/homeController/home.html'
       })
       .otherwise({ redirectTo: '/login' });
-    }])
-app.run(['$rootScope', '$location', '$http', '$cookieStore',
+    }]);
+app.controller('mainController', ['$rootScope', '$location', '$http', '$cookieStore',
     function ($rootScope, $location, $http, $cookieStore) {
 
       $rootScope.globals = $cookieStore.get('globals') || {};
@@ -29,5 +29,9 @@ app.run(['$rootScope', '$location', '$http', '$cookieStore',
           if ($location.path() !== '/login' && !$rootScope.globals.token) {
               $location.path('/login');
           }
+      });
+
+      $rootScope.$on('logout', function (event, next, current) {
+          $location.path('/login');
       });
     }]);

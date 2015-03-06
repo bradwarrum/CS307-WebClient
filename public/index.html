@@ -1,4 +1,4 @@
-<html ng-app='virtualPantry'>
+<html ng-app='virtualPantry' ng-controller='mainController'>
   <head>
     <title>Virtual Pantry</title>
 
@@ -14,10 +14,7 @@
     <link rel="stylesheet" type="text/css" href="index.css">
   </head>
   <body>
-    <div class='header' ng-controller='headerController'>
-          <div class='header_menu'>{{Username}}</div>
-          <div class='header_logo'>Virtual Pantry</div>
-    </div>
+    <header-bar ng-controller='headerController'></header-bar>
     <div ng-view></div>
   </body>
 </html>

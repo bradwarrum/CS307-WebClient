@@ -12,9 +12,12 @@ body {
 }
 
 .header_logo {
+    float: left;
+    display: block;
 }
 
-.header_username {
+.header_menu {
+    font-size: 15;
     float: right;
     display: block;
 }
