@@ -1,27 +1,23 @@
 <html ng-app='virtualPantry'>
   <head>
     <title>Virtual Pantry</title>
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.10/angular.min.js"></script>
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.10/angular-ui-router.js"></script>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular-route.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular-cookies.js"></script>
 
     <script src="app.js"></script>
+    <script src="./modules/loginController/service.js"></script>
+    <script src="./modules/headerController/header.js"></script>
+    <script src="./modules/homeController/home.js"></script>
+
     <link rel="stylesheet" type="text/css" href="index.css">
   </head>
   <body>
-    <div class='header'>
-      <div class='header_username'>Username</div>
-      <div class='header_logo'>Virtual Pantry</div>
+    <div class='header' ng-controller='headerController'>
+          <div class='header_menu'>{{Username}}</div>
+          <div class='header_logo'>Virtual Pantry</div>
     </div>
-    <form name='loginForm' ng-controller='loginController' ng-submit='login(credentials)'>
-      <label for='emailAddress'>Email:</label>
-      <input type='text' id='emailAddress' ng-model='credentials.emailAddress' placeholder="Email@example.com" >
-      <br/>
-      <label for='password'>Password:</label>
-      <input type='password' id='password' ng-model='credentials.password' placeholder="Password" >
-      <br/>
-      <button type='submit' id="submit" value="Submit" >Login</button>
-    </form>
-    <div id='responseBox' name='responseBox'></div>
-    <button name='userInfoController' ng-controller='userInfoController' ng-click='getMyInfo()'>Check User Information</button>
+    <div ng-view></div>
   </body>
 </html>
