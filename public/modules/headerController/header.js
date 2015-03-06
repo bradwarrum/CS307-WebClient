@@ -5,17 +5,17 @@ angular.module('virtualPantry')
     $scope.username = $rootScope.globals.emailAddress;
   });
   $scope.logout = function(){
-    $scope.username = '';
-    $rootScope.globals = {};
-    $cookieStore.remove('globals');
     $rootScope.$broadcast('logout');
   };
   $scope.goHome = function(){
     $location.path('/');
   }
+  $scope.$on('logout', function(){
+      $scope.username = '';
+  })
 }])
 .directive('headerBar', function($rootScope){
   return {
     templateUrl: './modules/headerController/header-bar.html'
   };
-});
+})
