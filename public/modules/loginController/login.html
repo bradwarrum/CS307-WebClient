@@ -1,10 +1,13 @@
-<form name='loginForm' ng-controller='loginController' ng-submit='login(credentials)'>
-  <label for='emailAddress'>Email:</label>
-  <input type='text' id='emailAddress' ng-model='credentials.emailAddress' placeholder="Email@example.com" >
-  <br/>
-  <label for='password'>Password:</label>
-  <input type='password' id='password' ng-model='credentials.password' placeholder="Password" >
-  <br/>
-  <button type='submit' id="submit" value="Submit" >Login</button>
-</form>
-<div id='responseBox' name='responseBox'></div>
+<div ng-controller='loginController'>
+  <form name='loginForm' ng-submit='login(credentials)'>
+    <label for='emailAddress'>Email:</label>
+    <input type='text' id='emailAddress' ng-model='credentials.emailAddress' placeholder="Email@example.com" >
+    <br/>
+    <label for='password'>Password:</label>
+    <input type='password' id='password' ng-model='credentials.password' placeholder="Password" >
+    <br/>
+    <button type='submit' id="submit" value="Submit" >Login</button>
+  </form>
+  <button  ng-click='gotoRegister()'>Register</button>
+  <div id='responseBox' name='responseBox'></div>
+</div>

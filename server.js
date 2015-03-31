@@ -32,53 +32,10 @@ app.use(function(req, res, next) {
     next();
 });
 
-function ensureAuthorized(request, response, next) {
-    var bearerToken;
-    var bearerHeader = request.headers["authorization"];
-    if (typeof bearerHeader !== 'undefined') {
-        var bearer = bearerHeader.split(" ");
-        bearerToken = bearer[1];
-        request.token = bearerToken;
-        next();
-    } else {
-        response.send(403);
-    }
-}
 
-app.get('/mez', ensureAuthorized, function(request, response) {
-  response.json({
-    firstName: "Tester",
-    lastName: "Mc Testy",
-    userID: "12345",
-    emailAddress: "Test@users.com"
-  });
+app.get('*', function(request, response) {
+  response.sendfile('./public/index.html');
 });
-
-
-app.post('/users/loginz', function(request, response) {
-  console.log(request.body);
-  if(request.body.emailAddress == 'email' && request.body.password == 'password') {
-    response.json({
-      token: user.token
-    });
-  }else{
-    response.send(403);
-  }
-});
-
-
-
-
-app.post('/users/registerz', function(request, response) {
-  console.log(request.body);
-  if(request.body.emailAddress == 'email' && request.body.password == 'password') {
-
-  }else{
-
-  }
-});
-
-
 
 
 //start the server

@@ -1,3 +1,11 @@
-<div>
-  User page
+<div ng-controller='userController'>
+  User's first name: {{ user.firstName}}<br/>
+  User's last name: {{ user.lastName}}<br/>
+  User's email address: {{ user.emailAddress}}<br/><br/>
+
+  Households user is in:
+  <div ng-repeat="household in user.households">
+    Household name: {{household.householdName}}<br/>
+    Household Description: {{household.householdDescription}}<br/><br/>
+  </div><br/><br/>
 </div>
