@@ -1,0 +1,20 @@
+<div ng-controller='householdsController'>
+  <div ng-repeat="household in globals.households">
+    <a href="households/{{ household.householdID }}"
+      class="list-group-item">
+      Household: {{ household.householdName }}</a>
+  </div>
+  <br/><br/>
+
+  <form name='createForm' ng-submit='createHousehold(newHousehold)'>
+    Create Household:<br/>
+    <label for='householdName'>Household Name:</label>
+    <input type='text' id='householdName' ng-model='newHousehold.householdName' placeholder="Household Name" >
+    <br/>
+    <label for='householdDescription'>Household Description:</label>
+    <input type='text' id='householdDescription' ng-model='newHousehold.householdDescription' placeholder="Household Description" >
+    <br/>
+    <button type='submit' id="submit" value="Submit" >Create Household</button>
+  </form>
+  <div id='responseBox' name='responseBox'></div>
+</div>

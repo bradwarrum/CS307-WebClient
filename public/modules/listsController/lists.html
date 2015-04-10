@@ -1,0 +1,10 @@
+<div ng-controller='listsController'>
+  List Name: {{list.name}}
+  <br/>List Version: {{list.version}}
+  <br/>
+  <br/>
+  <div ng-repeat="item in list.items">
+    {{item.UPC}}<br/>{{item.description}}<br/>{{item.quantity}}<br/><br/>
+  </div>
+  <br/><br/>
+</div>

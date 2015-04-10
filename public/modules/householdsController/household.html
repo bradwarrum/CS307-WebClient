@@ -1,0 +1,24 @@
+<div ng-controller='householdsController'>
+  Household Name: {{ household.householdName }}<br/>
+  Household Description: {{ household.householdDescription }}<br/>
+  Head of Household: {{ household.headOfHousehold }}<br/><br/>
+  Members of Household:
+  <div ng-repeat="member in household.members">
+    Member name: {{ member.firstName}} {{member.lastName}}<br/>
+    Member email: {{member.emailAddress}}<br/><br/>
+  </div>
+  <br/><br/>
+  Household Lists:
+  <div ng-repeat="list in household.lists">
+    List:<a href='household/{{household.householdID}}/lists/{{list.listID}}'> {{ list.listName}}</a><br/><br/>
+  </div><br/><br/>
+  <form name='lcreate' ng-submit='createList(listInfo)'>
+    Create a new list:
+    <br/>
+    <label for='listName'>List Name:</label>
+    <input type='text' id='listName' ng-model='listInfo.listName' placeholder='New List Name' >
+    <br/>
+    <button type='submit' id="submit" value="Submit" >Create List</button>
+  </form><br/><br/>
+  <div id='responseBox' name='responseBox'></div>
+</div>

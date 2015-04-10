@@ -1,0 +1,21 @@
+<div ng-controller='registrationController'>
+  <form name='registrationForm' ng-submit='register(credentials)'>
+    <label for='emailAddress'>Email:</label>
+    <input type='text' id='emailAddress' ng-model='credentials.emailAddress' placeholder="Email@example.com" >
+    <br/>
+    <label for='firstName'>First Name</label>
+    <input type='text' id='firstName' ng-model='credentials.firstName' placeholder="John" >
+    <br/>
+    <label for='lastName'>Last Name</label>
+    <input type='text' id='lastName' ng-model='credentials.lastName' placeholder="Smith" >
+    <br/>
+    <label for='password'>Password:</label>
+    <input type='password' id='password' ng-model='credentials.password' placeholder="Password" >
+    <br/>
+    <label for='password2'>Please Enter Password Again:</label>
+    <input type='password' id='password' ng-model='credentials.password2' placeholder="Password" >
+    <br/>
+    <button type='submit' id="submit" value="Submit" >Register New User</button>
+  </form>
+  <div id='responseBox' name='responseBox'></div>
+</div>
