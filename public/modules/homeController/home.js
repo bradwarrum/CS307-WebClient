@@ -10,4 +10,7 @@ angular.module('HomeModule')
   $scope.households = function(){
     $location.path('/households');
   };
+  $scope.items = function(){
+    $location.path('/items');
+  };
 }])

@@ -6,10 +6,11 @@ angular.module('LoginModule', []);
 angular.module('HomeModule', []);
 angular.module('HouseholdsModule', []);
 angular.module('UserModule', []);
+angular.module('ListsModule', []);
 angular.module('RegistrationModule', []);
 
 
-var app = angular.module('virtualPantry', ['LoginModule', 'HomeModule', 'HouseholdsModule', 'UserModule', 'RegistrationModule', 'ngRoute', 'ngCookies']);
+var app = angular.module('virtualPantry', ['ListsModule', 'LoginModule', 'HomeModule', 'HouseholdsModule', 'UserModule', 'RegistrationModule', 'ngRoute', 'ngCookies']);
 app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
     $routeProvider
       .when('/login', {
@@ -23,6 +24,10 @@ app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $lo
       .when('/home', {
         controller: 'homeController',
         templateUrl: 'modules/homeController/home.html'
+      })
+      .when('/household/:householdID/lists/:listID', {
+        controller: 'listsController',
+        templateUrl: 'modules/listsController/lists.html'
       })
       .when('/households', {
         controller: 'householdsController',
