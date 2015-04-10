@@ -5,7 +5,7 @@ angular.module('HomeModule')
     $rootScope.$broadcast('logout');
   };
   $scope.myInfo = function(){
-
+    $location.path('/user');
   };
   $scope.households = function(){
     $location.path('/households');
