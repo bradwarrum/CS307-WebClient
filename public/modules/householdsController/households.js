@@ -48,6 +48,20 @@ angular.module('HouseholdsModule')
   };
 
 
+  $scope.deleteHousehold = function() {
+    var req = {
+      url: sIpPort+'/api/households/'+$routeParams.householdID+'/remove?token='+$scope.globals.token,
+      method: 'POST'
+    };
+    $http(req)
+      .success(function(data, status, headers, config) {
+          $location.path('/households/');
+      }).error(function(data, status, headers, config) {
+          document.getElementById("responseBox").innerHTML = "Failed to delete household";
+      });
+  };
+
+
   if($routeParams.householdID != null){
     $scope.showHousehold($routeParams.householdID);
   }else{

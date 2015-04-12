@@ -3,8 +3,10 @@
   <br/>List Version: {{list.version}}
   <br/>
   <br/>
+  Items in list:
   <div ng-repeat="item in list.items">
     {{item.UPC}}<br/>{{item.description}}<br/>{{item.quantity}}<br/><br/>
   </div>
   <br/><br/>
+  <button id="Delete" ng-click="deleteList()" >Delete List</button>
 </div>

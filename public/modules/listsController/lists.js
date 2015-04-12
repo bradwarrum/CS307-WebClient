@@ -15,5 +15,18 @@ angular.module('ListsModule')
       });
   };
 
+  $scope.deleteList = function() {
+    var req = {
+      url: sIpPort+'/api/households/'+$routeParams.householdID+'/lists/'+$routeParams.listID+'/remove?token='+$scope.globals.token,
+      method: 'POST'
+    };
+    $http(req)
+      .success(function(data, status, headers, config) {
+          $location.path('/households/'+$routeParams.householdID);
+      }).error(function(data, status, headers, config) {
+          document.getElementById("responseBox").innerHTML = "Failed to delete list";
+      });
+  };
+
   $scope.getItems();
 }])
